@@ -37,9 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
+    'crudApp.apps.CrudappConfig'
 ]
 
+CORS_ORIGIN__ALLOW_ALL = True
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware'
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -75,10 +81,18 @@ WSGI_APPLICATION = 'config_server.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'mssql',
+        'NAME': 'college-taxi',
+        'USER': 'SA',
+        'PASSWORD': 'Kshitiz@25',
+        'HOST': '192.168.44.132',
+        'OPTIONS': {
+            'driver': 'ODBC Driver 17 for SQL Server',  # Use the appropriate driver version
+            'MARS_Connection': 'True',  # If you want to enable Multiple Active Result Sets (MARS)
+        }
     }
 }
+
 
 
 # Password validation
@@ -121,3 +135,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
