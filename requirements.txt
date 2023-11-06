@@ -1,2 +1,7 @@
 django
 pyodbc
+mssql-django
+python-decouple
+django djangorestframework
+django-cors-headers
+django-pyodbc-azure
