@@ -6,5 +6,3 @@ class UserTable(models.Model):
     UserName = models.CharField(max_length=100)
     UserEmail = models.CharField(max_length=100)
     UserNumber = models.CharField(max_length=10)
-
-
